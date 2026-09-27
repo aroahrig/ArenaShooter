@@ -1915,8 +1915,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.75,
-      "y": 0.75,
+      "x": 0.25,
+      "y": 0.25,
       "z": 1
     },
     "_mobility": 0,
@@ -2086,7 +2086,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "speed": 0.2,
+    "speed": 10,
     "_id": "5aBoHbVJ5AQ5tjquU18kTL"
   },
   {
