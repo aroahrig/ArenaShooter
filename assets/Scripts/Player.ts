@@ -1,4 +1,4 @@
-import { _decorator, Camera, Component, EventKeyboard, EventMouse, Node, Prefab } from 'cc';
+import { _decorator, Camera, Component, EventKeyboard, EventMouse, Node, Prefab, Animation, log, math, Vec2 } from 'cc';
 import { PlayerInputSystem } from './PlayerInputSystem';
 import { PlayerMovementSystem } from './PlayerMovementSystem';
 import { PlayerWeaponSystem } from './PlayerWeaponSystem';
@@ -12,11 +12,13 @@ export class Player extends Component {
     private movementSystem: PlayerMovementSystem | null = null;
     private weaponSystem: PlayerWeaponSystem | null = null;
     private mainCamera: Camera | null = null;
+    private animation: Animation;
 
     protected onLoad(): void {
         this.inputSystem = this.getComponent(PlayerInputSystem);
         this.movementSystem = this.getComponent(PlayerMovementSystem);
         this.weaponSystem = this.getComponent(PlayerWeaponSystem);
+        this.animation = this.getComponent(Animation);
     }
 
     public initialize(camera: Camera): void {
@@ -36,12 +38,27 @@ export class Player extends Component {
     protected update(deltaTime: number) {
         if (this.inputSystem && this.movementSystem) {
             let moveDir = this.inputSystem.getMoveDirection();
+
+            this.animation.on(Animation.EventType.FINISHED, this.onAnimationFinished, this);
+
             this.movementSystem.updateMovement(moveDir);
         }
 
         if (this.inputSystem && this.weaponSystem) {
             let isFiring = this.inputSystem.isShooting;
             this.weaponSystem.processFiring(isFiring, this.node.angle);
+        }
+    }
+
+    private onAnimationFinished() {
+        let moveDir = this.inputSystem.getMoveDirection();
+        if (moveDir.x != 0 || moveDir.y != 0) {
+            this.animation.play('PlayerMove');
+            log('moving');
+        }
+        else {
+            this.animation.play('PlayerIdle');
+            log('idling');
         }
     }
 
