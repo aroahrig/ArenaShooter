@@ -55,6 +55,18 @@ export class PlayerInputSystem extends Component {
             case KeyCode.ARROW_RIGHT:
                 this.isRight = false;
                 break;
+            case KeyCode.DIGIT_1:
+                this.node.emit('WeaponSelect', 1);
+                break;
+            case KeyCode.DIGIT_2:
+                this.node.emit('WeaponSelect', 2);
+                break;
+            case KeyCode.DIGIT_3:
+                this.node.emit('WeaponSelect', 3);
+                break;
+            case KeyCode.DIGIT_4:
+                this.node.emit('WeaponSelect', 4);
+                break;
         }
     };
     public handleMouseMove(event: EventMouse, camera: Camera, playerPos: Readonly<Vec3>): number {
