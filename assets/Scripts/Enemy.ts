@@ -1,4 +1,4 @@
-import { _decorator, Component, find, Node } from 'cc';
+import { _decorator, Component, find, Node, Vec2 } from 'cc';
 import { EnemyInputSystem } from './EnemyInputSystem';
 import { EnemyMovementSystem } from './EnemyMovementSystem';
 import { HealthSystem } from './HealthSystem';
@@ -21,15 +21,18 @@ export class Enemy extends Component {
             this.healthSystem.initialize(20);
         }
 
-        if (this.inputSystem) {
-            this.targetNode = find("Canvas/Player");
-            this.inputSystem.initialize(this.targetNode);
-        }
+
+        
         
     }
 
     start() {
-
+        if (this.inputSystem) {
+            let wanderPoints = this.node.getParent().getChildByName("WanderingNodes").children.map(
+                child => new Vec2(child.worldPosition.x, child.worldPosition.y)
+            );
+            this.inputSystem.initialize(wanderPoints);
+        }
     }
 
     update(deltaTime: number) {
@@ -39,7 +42,7 @@ export class Enemy extends Component {
             }
         }
 
-        if (this.inputSystem && this.movementSystem && this.targetNode) {
+        if (this.inputSystem && this.movementSystem) {
             let moveDir = this.inputSystem.getMoveDirection();
 
             this.movementSystem.updateMovement(moveDir);
