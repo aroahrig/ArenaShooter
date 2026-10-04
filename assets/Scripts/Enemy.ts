@@ -28,10 +28,11 @@ export class Enemy extends Component {
 
     start() {
         if (this.inputSystem) {
+            this.targetNode = find("Canvas/Player");
             let wanderPoints = this.node.getParent().getChildByName("WanderingNodes").children.map(
                 child => new Vec2(child.worldPosition.x, child.worldPosition.y)
             );
-            this.inputSystem.initialize(wanderPoints);
+            this.inputSystem.initialize(this.targetNode, wanderPoints);
         }
     }
 
@@ -45,7 +46,7 @@ export class Enemy extends Component {
         if (this.inputSystem && this.movementSystem) {
 
             this.inputSystem.processFSM(deltaTime);
-            
+
             let moveDir = this.inputSystem.getMoveDirection();
 
             this.movementSystem.updateMovement(moveDir);
