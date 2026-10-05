@@ -59,7 +59,7 @@ export const FORWARD_REAR_PISTOL: WeaponConfig = {
     magazineSize: 20,
     barrels: [
         { pos: new Vec2, angle: 0, size: 1.0 },
-        { pos: new Vec2, angle: 100, size: 1.0 }
+        { pos: new Vec2, angle: 180, size: 1.0 }
     ]
 }
 
