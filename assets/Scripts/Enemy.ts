@@ -20,10 +20,6 @@ export class Enemy extends Component {
         if (this.healthSystem) {
             this.healthSystem.initialize(20);
         }
-
-
-        
-        
     }
 
     start() {
@@ -53,6 +49,10 @@ export class Enemy extends Component {
 
             let targetAngle = this.inputSystem.getRotationAngle();
             this.movementSystem.updateRotation(targetAngle);
+        }
+
+        if (this.inputSystem.stateDebugLabel) {
+            this.inputSystem.stateDebugLabel.node.angle = -this.node.angle;
         }
     }
 }
