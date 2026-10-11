@@ -514,6 +514,8 @@
     },
     "seekWeight": 1.5,
     "fleeWeight": 0,
+    "maxSpeed": 4,
+    "maxTurnForce": 0.2,
     "_id": ""
   },
   {
