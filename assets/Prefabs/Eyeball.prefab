@@ -512,6 +512,8 @@
     "__prefab": {
       "__id__": 23
     },
+    "seekWeight": 1.5,
+    "fleeWeight": 0,
     "_id": ""
   },
   {
