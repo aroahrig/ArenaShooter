@@ -1,4 +1,4 @@
-import { Vec2 } from "cc";
+import { log, Vec2 } from "cc";
 import { EnemyInputSystem } from "./EnemyInputSystem";
 import { IState } from "./IState";
 
@@ -26,6 +26,7 @@ export class StuckState implements IState {
     execute(brain: EnemyInputSystem, dt: number): void {
         this.fleeTimer -= dt;
 
+        log(this.fleeTimer)
         if (this.fleeTimer <= 0) {
             brain.changeState(brain.patrolState);
             return;
@@ -37,7 +38,6 @@ export class StuckState implements IState {
         brain.setMoveDirection(dir);
     }
     exit(brain: EnemyInputSystem): void {
-        throw new Error("Method not implemented.");
     }
 
 }
