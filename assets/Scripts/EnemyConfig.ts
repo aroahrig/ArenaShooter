@@ -3,6 +3,10 @@ import { Vec2 } from "cc";
 export interface IntentConfig {
     seekWeight: number;
     fleeWeight: number;
+    maxSpeed: number;
+    maxPredictionTime: number;
+    spotPlayerDistance: number;
+    lostPlayerDistance: number;
     // pursuitWeight: number;
 }
 
@@ -22,7 +26,6 @@ export interface FlockingWeights {
 }
 
 export interface MovementConfig {
-    maxSpeed: number;
     maxTurnForce: number;
     avoidWeight: number;
     whiskers: WhiskerConfig[];
