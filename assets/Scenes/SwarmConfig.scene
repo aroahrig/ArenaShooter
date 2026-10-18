@@ -121,23 +121,23 @@
     "__prefab": null,
     "scale": {
       "__type__": "cc.Vec2",
-      "x": 2.5,
-      "y": 2.5
+      "x": 0.5,
+      "y": 0.5
     },
-    "health": 100,
+    "health": 10,
     "seekWeight": 2,
     "fleeWeight": 0,
-    "maxSpeed": 2,
+    "maxSpeed": 2.5,
     "maxPredictionTime": 2,
     "spotPlayerDistance": 450,
     "lostPlayerDistance": 500,
     "maxTurnForce": 0.1,
     "avoidWeight": 3,
-    "seperationWeight": 3,
+    "seperationWeight": 1,
     "seperationRadius": 125,
-    "alignmentWeight": 0,
+    "alignmentWeight": 2,
     "alignmentRadius": 100,
-    "cohesionWeight": 0,
+    "cohesionWeight": 2,
     "cohesionRadius": 245,
     "whiskers": [
       {
@@ -156,7 +156,7 @@
         "__id__": 8
       }
     ],
-    "configNamePrefix": "boss",
+    "configNamePrefix": "swarm",
     "_id": "93Sj1RfdpB1LynLx41wuqm"
   },
   {

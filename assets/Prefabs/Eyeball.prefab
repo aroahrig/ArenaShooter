@@ -588,7 +588,7 @@
     "__prefab": {
       "__id__": 25
     },
-    "enabledContactListener": false,
+    "enabledContactListener": true,
     "bullet": false,
     "awakeOnLoad": true,
     "_group": 4,
@@ -652,17 +652,10 @@
     "__prefab": {
       "__id__": 29
     },
-    "seekWeight": 1.5,
-    "fleeWeight": 0,
-    "maxSpeed": 4,
-    "maxTurnForce": 0.2,
-    "avoidWeight": 3,
-    "seperationWeight": 1,
-    "seperationRadius": 100,
-    "alignmentWeight": 3,
-    "alignmentRadius": 100,
-    "cohesionWeight": 2,
-    "cohesionRadius": 245,
+    "testConfigFile": {
+      "__uuid__": "9ea59447-c122-48ab-a5b4-02f627d4cd43",
+      "__expectedType__": "cc.JsonAsset"
+    },
     "_id": ""
   },
   {
