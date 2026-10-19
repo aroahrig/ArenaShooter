@@ -26,7 +26,6 @@ export class StuckState implements IState {
     execute(brain: EnemyInputSystem, dt: number): void {
         this.fleeTimer -= dt;
 
-        log(this.fleeTimer)
         if (this.fleeTimer <= 0) {
             brain.changeState(brain.patrolState);
             return;

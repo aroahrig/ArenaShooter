@@ -652,10 +652,7 @@
     "__prefab": {
       "__id__": 29
     },
-    "testConfigFile": {
-      "__uuid__": "9ea59447-c122-48ab-a5b4-02f627d4cd43",
-      "__expectedType__": "cc.JsonAsset"
-    },
+    "testConfigFile": null,
     "_id": ""
   },
   {
