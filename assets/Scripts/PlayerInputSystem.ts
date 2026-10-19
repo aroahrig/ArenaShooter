@@ -59,19 +59,6 @@ export class PlayerInputSystem extends Component implements IInputSystem {
             case KeyCode.ARROW_RIGHT:
                 this.isRight = true;
                 //log("Input System recieved: Right");
-                break;
-            case KeyCode.DIGIT_1:
-                this.node.emit('WeaponSelect', 1);
-                break;
-            case KeyCode.DIGIT_2:
-                this.node.emit('WeaponSelect', 2);
-                break;
-            case KeyCode.DIGIT_3:
-                this.node.emit('WeaponSelect', 3);
-                break;
-            case KeyCode.DIGIT_4:
-                this.node.emit('WeaponSelect', 4);
-                break;
         }
 
         this.calculateMoveDirection();
