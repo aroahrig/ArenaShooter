@@ -37,10 +37,6 @@ export class GameCtrl extends Component {
         EventBus.off(GameEvents.WEAPON_SWAP, this.handleWeaponSwap, this);
     }
 
-    update(deltaTime: number) {
-        
-    }
-
     private handleWeaponSwap(WeaponIndex: number) {
         switch(WeaponIndex) {
             case 1:

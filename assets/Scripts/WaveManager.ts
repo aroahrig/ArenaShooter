@@ -17,7 +17,7 @@ export class WaveManager extends Component {
     @property({ type: WaveFactory })
     public waveFactory: WaveFactory | null = null;
 
-    private activeEnemies: Enemy[] = [];
+    public activeEnemies: Enemy[] = [];
     private activeEnemyCount: number = 0;
     private currentWaveIndex: number = 0;
     private stateStack: WaveState[] = [];
@@ -117,7 +117,7 @@ export class WaveManager extends Component {
 
         this.activeEnemies = this.waveFactory.buildWave(this.currentWaveIndex);
         log(`[Spawn Wave] ${this.activeEnemyCount}`);
-        EventBus.emit(GameEvents.WAVE_SPAWNED);
+        EventBus.emit(GameEvents.WAVE_SPAWNED, this.activeEnemies);
     }
 }
 

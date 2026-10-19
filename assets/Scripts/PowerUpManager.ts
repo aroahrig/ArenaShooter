@@ -3,6 +3,7 @@ import { PowerUpConfig, PowerUpType } from './PowerUpConfig';
 import { EventBus, GameEvents } from './EventBus';
 import { Enemy } from './Enemy';
 import { PowerUp } from './PowerUp';
+import { WaveManager } from './WaveManager';
 const { ccclass, property } = _decorator;
 
 interface PowerUpPayload {
@@ -12,6 +13,9 @@ interface PowerUpPayload {
 
 @ccclass('PowerUpManager')
 export class PowerUpManager extends Component {
+    @property({ type: WaveManager })
+    public waveManager: WaveManager | null = null;
+
     @property({ type: [PowerUpConfig], group: 'Power Up Pool' })
     public dropPool: PowerUpConfig[] = [];
 
@@ -44,7 +48,8 @@ export class PowerUpManager extends Component {
         }
     }
 
-    private setupWaveDrops(activeEnemies: Enemy[]) {
+    private setupWaveDrops() {
+        let activeEnemies = this.waveManager.activeEnemies;
         this.enemiesRemainingThisWave = activeEnemies.length;
         this.dropsRemainingThisWave = activeEnemies.length > 25 ? math.randomRangeInt(2, 3) : math.randomRangeInt(1, 2);
     }

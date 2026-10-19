@@ -2804,6 +2804,9 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "waveManager": {
+      "__id__": 103
+    },
     "dropPool": [
       {
         "__id__": 107
